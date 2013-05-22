@@ -1,0 +1,29 @@
+/* vim: set expandtab tabstop=4 shiftwidth=4: */
+/**
+ * CSS declarations for Appapro iAthletics
+ *
+ * These can be copied and modified to fit the needs of
+ * a theme.  By default the only change is to make all of
+ * the fields wider than their default width and to set the
+ * default font.
+ */
+
+.aia-season {
+    margin: 2px;
+    /*border: 1px dashed red;*/
+}
+
+.aia-team {
+    margin: 2px;
+    /*border: 1px dashed blue;*/
+}
+
+.aia-event {
+    margin: 2px;
+    /*border: 1px dashed purple;*/
+}
+
+.aia-accordion h1, .aia-accordion h2, .aia-accordion h3,
+.aia-accordion h4, .aia-accordion h5, .aia-accordion h6 {
+    margin: 0 !important;
+}
