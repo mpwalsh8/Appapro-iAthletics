@@ -68,7 +68,7 @@ function aia_options_print_styles()
     //  it is a world-wide CDN.
 
     wp_enqueue_style('xtra-jquery-ui-css',
-        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/base/jquery-ui.css') ;
+        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/jquery-ui.css') ;
 }
 
 /**

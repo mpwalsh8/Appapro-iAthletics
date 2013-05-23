@@ -110,6 +110,7 @@ function aia_get_default_plugin_options()
 {
 	$default_plugin_options = array(
         'api_key' => 1
+       ,'date_format' => 'D M d, Y h:i a'
        ,'sc_posts' => 1
        ,'sc_widgets' => 1
        ,'default_css' => 1
@@ -152,14 +153,13 @@ function aia_get_plugin_options()
     //  Since the array keys are used to build the form, we need for them
     //  to "exist" so if they don't, they are created and set to null.
 
-    //$plugin_options = array_merge($default_options, get_option('aia_options', $default_options)) ;
-    $plugin_options = wp_parse_args(get_option('aia_options', $default_options)) ;
+    $plugin_options = wp_parse_args(get_option('aia_options'), $default_options) ;
 
     //  If the array key doesn't exist, it means it is a check box option
     //  that is not enabled so the array element(s) needs to be set to zero.
 
-    foreach ($default_options as $key => $value)
-        if (!array_key_exists($key, $plugin_options)) $plugin_options[$key] = 0 ;
+    //foreach ($default_options as $key => $value)
+    //    if (!array_key_exists($key, $plugin_options)) $plugin_options[$key] = 0 ;
 
     return $plugin_options ;
 }
@@ -357,7 +357,13 @@ class iAthletics
         //  Property short cut
         $o = &self::$options ;
 
-        //  Id?  Required - make sure it is reasonable.
+        //  API Key?  Required - make sure it is reasonable.
+
+        if ((empty($options) || !array_key_exists('api_key', $options)))
+        {
+            $aia_options = aia_get_plugin_options() ;
+            $options['api_key'] = $aia_options['api_key'] ;
+        }
 
         if ($options['api_key'])
         {
@@ -433,7 +439,8 @@ class iAthletics
         //  If no API Key then return as nothing useful can be done.
         if (!$o['api_key'])
         {
-            return false; 
+            //return false; 
+            $api_key = $aia_options['api_key'] ;
         }
         else
         {
@@ -543,7 +550,11 @@ class iAthletics
                         $schedule .= sprintf('<tr>%s', PHP_EOL) ;
 
                         foreach($events_lut as $key => $value)
-                            $schedule .= sprintf('<td>%s</td>%s', (string)$event->{$key}, PHP_EOL) ;
+                            if ('EventDateTime' === $key)
+                                $schedule .= sprintf('<td>%s</td>%s',
+                                    date($aia_options['date_format'], strtotime((string)$event->{$key})), PHP_EOL) ;
+                            else
+                                $schedule .= sprintf('<td>%s</td>%s', (string)$event->{$key}, PHP_EOL) ;
 
                         $schedule .= sprintf('</tr>%s', PHP_EOL) ;
                         //$html .= sprintf('<p>Event Id:  %s</p>', (string)$event->eventId) ;
@@ -674,7 +685,7 @@ class iAthletics
 
         if (is_wp_error($response))
         {
-            aia_whereami(__FILE__, __LINE__) ;
+            //aia_whereami(__FILE__, __LINE__) ;
             $error_string = $response->get_error_message();
             echo '<div id="message" class="aia-error"><p>' . $error_string . '</p></div>';
             if (AIA_DEBUG)
@@ -683,8 +694,8 @@ class iAthletics
                 print '<pre>' ;
                 print_r($response) ;
                 print '</pre>' ;
-                aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
-                aia_preprint_r($response) ;
+                //aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
+                //aia_preprint_r($response) ;
             }
 
             $xml = new WP_Error('API Error',
