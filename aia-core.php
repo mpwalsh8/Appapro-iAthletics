@@ -49,8 +49,8 @@ function aia_init_i18n()
 $aia_options = aia_get_plugin_options() ;
 
 //  Enable debug content?
-//define('AIA_DEBUG', $aia_options['enable_debug'] == 1) ;
-define('AIA_DEBUG', true) ;
+define('AIA_DEBUG', $aia_options['enable_debug'] == 1) ;
+//define('AIA_DEBUG', true) ;
 
 if (AIA_DEBUG)
 {
@@ -454,10 +454,6 @@ class iAthletics
         if (is_wp_error($season_xml))
             return self::iAthleticsAPIError($season_xml) ;
 
-        aia_whereami(__FILE__, __LINE__) ;
-        aia_preprint_r($season_xml) ;
-        aia_whereami(__FILE__, __LINE__) ;
-
         if (AIA_DEBUG)
             $debug = '<h2 class="aia-debug"><a href="#" class="aia-debug-wrapper">Show iAthletics Debug Content</a></h2>' ;
         else
@@ -503,8 +499,8 @@ class iAthletics
                     //  Each team has News, Schedule, and Roster
 
                 if (!$x) {
-                    aia_whereami(__FILE__, __LINE__, 'ConstructiAthletics') ;
-                    aia_preprint_r($team) ;
+                    //aia_whereami(__FILE__, __LINE__, 'ConstructiAthletics') ;
+                    //aia_preprint_r($team) ;
                     //$x = true ;
 
                     //  Each team has a schedule
@@ -655,10 +651,6 @@ class iAthletics
      */
     function iAthleticsAPI($apiCall, $args)
     {
-        aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
-        aia_preprint_r($args) ;
-        aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
-
         $defaults = array(
             'appId' => 0
            ,'deviceId' => htmlentities(AIA_API_DEVICE_ID)
@@ -668,10 +660,6 @@ class iAthletics
 
         $api = add_query_arg($args, sprintf('%s/%s', AIA_API, $apiCall)) ;
 
-        aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
-        aia_preprint_r($args) ;
-        aia_preprint_r($api) ;
-        aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
         //  Handle HTTP API timeout setting
         $aia_options = aia_get_plugin_options() ;
 
@@ -705,7 +693,6 @@ class iAthletics
         }
         else
         {
-            aia_whereami(__FILE__, __LINE__) ;
             $xml = simplexml_load_string($response['body']) ;
         }
 
