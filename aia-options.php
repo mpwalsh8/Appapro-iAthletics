@@ -65,9 +65,10 @@ function aia_options_print_styles()
 {
     //  Need the jQuery UI CSS to make the tabs look correct.
     //  Load them from Google - should not be an issue since
-    //  this plugin is all about consuming Google content!
+    //  it is a world-wide CDN.
 
-    wp_enqueue_style('xtra-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/base/jquery-ui.css') ;
+    wp_enqueue_style('xtra-jquery-ui-css',
+        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/base/jquery-ui.css') ;
 }
 
 /**
@@ -246,6 +247,14 @@ function aia_settings_input()
             </td>
         </tr>
         <tr valign="top">
+            <th scope="row"><label><?php _e('Date Format', WPGFORM_I18N_DOMAIN);?></label></th>
+            <td><fieldset>
+            <label for="aia_date_format">
+            <input name="aia_options[date_format]" type="text" id="aia_date_format" value="<?php echo $aia_options['date_format'] ; ?>" /><br />
+           <small><?php _e('Dates are formated using <a href="www.php.net/manual/en/function.date.php">PHP\'s date()</a> syntax.', WPGFORM_I18N_DOMAIN);?></small></label>
+            </fieldset></td>
+        </tr>
+        <tr valign="top">
             <th scope="row"><label><?php _e('Donation Request', WPGFORM_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_donation_message">
@@ -360,6 +369,7 @@ function aia_settings_advanced_options()
     </table>
     <br /><br />
     <input name="aia_options[api_key]" type="hidden" id="aia_api_key" value="<?php echo $aia_options['api_key'] ; ?>" />
+    <input name="aia_options[date_format]" type="hidden" id="aia_date_format" value="<?php echo $aia_options['date_format'] ; ?>" />
     <input name="aia_options[sc_posts]" type="hidden" id="aia_sc_posts" value="<?php echo $aia_options['sc_posts'] ; ?>" />
     <input name="aia_options[sc_widgets]" type="hidden" id="aia_sc_widgets" value="<?php echo $aia_options['sc_widgets'] ; ?>" />
     <input name="aia_options[default_css]" type="hidden" id="aia_default_css" value="<?php echo $aia_options['default_css'] ; ?>" />
