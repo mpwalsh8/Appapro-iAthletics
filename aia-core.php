@@ -54,6 +54,7 @@ define('AIA_DEBUG', $aia_options['enable_debug'] == 1) ;
 
 if (AIA_DEBUG)
 {
+    error_log(sprintf('%s::%s', basename(__FILE__), __LINE__)) ;
     error_reporting(E_ALL) ;
     require_once('aia-debug.php') ;
     add_action('send_headers', 'aia_send_headers') ;
@@ -473,7 +474,6 @@ class iAthletics
         //  Assemble final HTML to return by traversing the returned XML and
         //  making subsequent API calls based on the data encoutnered in the XML.
 
-        error_log(print_r($season_xml, true)) ;
         if (property_exists($season_xml, 'AppSeasons'))
         {
             $appSeasons = &$season_xml->AppSeasons->AppSeason ;
@@ -603,7 +603,6 @@ class iAthletics
 
                     foreach ($players as $player)
                     {
-                        error_log(print_r($player, true)) ;
                         $roster .= sprintf('<tr class="aia-roster">%s', PHP_EOL) ;
 
                         foreach($rosters_lut as $key => $value)
@@ -679,21 +678,21 @@ class iAthletics
         else
             $timeout = $aia_options['http_api_timeout'] ;
 
+        error_log(sprintf('%s::%s', basename(__FILE__), __LINE__)) ;
         $response = wp_remote_get($api, array('sslverify' => false, 'timeout' => $timeout)) ;
+        error_log(sprintf('%s::%s', basename(__FILE__), __LINE__)) ;
 
         //  Retrieve the XML from the iAthletics API
 
         if (is_wp_error($response))
         {
             //aia_whereami(__FILE__, __LINE__) ;
-            $error_string = $response->get_error_message();
-            echo '<div id="message" class="aia-error"><p>' . $error_string . '</p></div>';
+            //$error_string = $response->get_error_message();
+            //echo '<div id="message" class="aia-error"><p>' . $error_string . '</p></div>';
             if (AIA_DEBUG)
             {
                 printf('<h2>%s::%s</h2>', basename(__FILE__), __LINE__) ;
-                print '<pre>' ;
-                print_r($response) ;
-                print '</pre>' ;
+                printf('<pre>%s</pre>', print_r($response, true)) ;
                 //aia_whereami(__FILE__, __LINE__, 'iAthleticsAPI') ;
                 //aia_preprint_r($response) ;
             }
@@ -707,6 +706,7 @@ class iAthletics
             $xml = simplexml_load_string($response['body']) ;
         }
 
+        error_log(sprintf('%s::%s', basename(__FILE__), __LINE__)) ;
         return $xml ;
     }
 

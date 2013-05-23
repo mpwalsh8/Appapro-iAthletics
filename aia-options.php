@@ -92,7 +92,7 @@ function aia_options_page()
     if (!$aia_options['donation_message'])
     {
 ?>
-<small><?php printf(__('Please consider making a <a href="%s" target="_blank">PayPal donation</a> if you find this plugin useful.', WPGFORM_I18N_DOMAIN), 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DK4MS3AA983CC') ; ?></small>
+<small><?php printf(__('Please consider making a <a href="%s" target="_blank">PayPal donation</a> if you find this plugin useful.', AIA_I18N_DOMAIN), 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DK4MS3AA983CC') ; ?></small>
 <?php
     }
 ?>
@@ -100,11 +100,11 @@ function aia_options_page()
 <div class="container">
     <div id="aia-tabs">
         <ul>
-        <li><a href="#aia-tabs-1"><?php _e('Options', WPGFORM_I18N_DOMAIN);?></a></li>
-        <li><a href="#aia-tabs-2"><?php _e('Advanced Options', WPGFORM_I18N_DOMAIN);?></a></li>
-        <li><a href="#aia-tabs-3"><?php _e('FAQs', WPGFORM_I18N_DOMAIN);?></a></li>
-        <li><a href="#aia-tabs-4"><?php _e('Usage', WPGFORM_I18N_DOMAIN);?></a></li>
-        <li><a href="#aia-tabs-5"><?php _e('About', WPGFORM_I18N_DOMAIN);?></a></li>
+        <li><a href="#aia-tabs-1"><?php _e('Options', AIA_I18N_DOMAIN);?></a></li>
+        <li><a href="#aia-tabs-2"><?php _e('Advanced Options', AIA_I18N_DOMAIN);?></a></li>
+        <li><a href="#aia-tabs-3"><?php _e('FAQs', AIA_I18N_DOMAIN);?></a></li>
+        <li><a href="#aia-tabs-4"><?php _e('Usage', AIA_I18N_DOMAIN);?></a></li>
+        <li><a href="#aia-tabs-5"><?php _e('About', AIA_I18N_DOMAIN);?></a></li>
         </ul>
         <div id="aia-tabs-1">
             <form method="post" action="options.php">
@@ -141,7 +141,7 @@ function aia_options_page()
     if (is_wp_error($readme))
     {
 ?>
-<div class="updated error"><?php _e('Unable to retrive FAQ content from WordPress plugin repository.', WPGFORM_I18N_DOMAIN);?></div>
+<div class="updated error"><?php _e('Unable to retrive FAQ content from WordPress plugin repository.', AIA_I18N_DOMAIN);?></div>
 <?php
     }
     else
@@ -156,7 +156,7 @@ function aia_options_page()
     if (is_wp_error($readme))
     {
 ?>
-<div class="updated error"><?php _e('Unable to retrive Usage content from WordPress plugin repository.', WPGFORM_I18N_DOMAIN);?></div>
+<div class="updated error"><?php _e('Unable to retrive Usage content from WordPress plugin repository.', AIA_I18N_DOMAIN);?></div>
 <?php
     }
     else
@@ -166,13 +166,13 @@ function aia_options_page()
 ?>
         </div>
         <div id="aia-tabs-5">
-        <h4><?php _e('About Appapro iAthletics', WPGFORM_I18N_DOMAIN);?></h4>
+        <h4><?php _e('About Appapro iAthletics', AIA_I18N_DOMAIN);?></h4>
 <div style="margin-left: 25px; text-align: center; float: right;" class="postbox">
 <h3 class="hndle"><span><?php _e('Make a Donation', MAILUSERS_I18N_DOMAIN);?></span></h3>
 <div class="inside">
 <div style="text-align: center; font-size: 0.75em;padding:0px 5px;margin:0px auto;"><!-- PayPal box wrapper -->
 <div><!-- PayPal box-->
-	<p style="margin: 0.25em 0"><b>WordPress Goolge Forms v<?php echo WPGFORM_VERSION; ?></b></p>
+	<p style="margin: 0.25em 0"><b><a href="http://www.apparo.com">Appapro iAthletics</a> v<?php echo AIA_VERSION; ?></b></p>
 	<p style="margin: 0.25em 0"><a href="http://wordpress.org/extend/plugins/aia/" target="_blank"><?php _e('Plugin\'s Home Page', MAILUSERS_I18N_DOMAIN); ?></a></p>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -186,8 +186,8 @@ function aia_options_page()
 </div><!-- postbox -->
 <div>
 
-        <p><?php _e('An easy to implement integration of a Appapro iAthletics with WordPress. This plugin allows you to leverage the power of Appapro iAthletics to display the same information on your WordPress site as appears on your Apparo iAthletics based mobile application.', WPGFORM_I18N_DOMAIN);?></p>
-        <p><?php _e('Appapro iAthletics is based on the <a href="%s"><b>WordPress HTTP API</b></a> and in particular, the <a href="%s"><b>wp_remote_get()</b></a> and <a href="http://codex.wordpress.org/Function_API/wp_remote_post"><b>wp_remote_post()</b></a> functions for retrieving and posting the form.  Appapro iAthletics also makes use of the <a href="%s"><b>wp_kses()</b></a> function for processing the XML retrieved from Appapro and extracting the relevant information.</p><p>If you find this plugin useful, please consider <a href="%s" target="_blank">making small donation towards this plugin</a> to help keep it up to date.</p>', 'http://codex.wordpress.org/HTTP_API', 'http://codex.wordpress.org/Function_API/wp_remote_get', 'http://codex.wordpress.org/Function_Reference/wp_kses', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DK4MS3AA983CC', WPGFORM_I18N_DOMAIN);?>
+        <p><?php _e('An easy to implement integration of a Appapro iAthletics with WordPress. This plugin allows you to leverage the power of Appapro iAthletics to display the same information on your WordPress site as appears on your Apparo iAthletics based mobile application.', AIA_I18N_DOMAIN);?></p>
+        <p><?php _e('Appapro iAthletics is based on the <a href="%s"><b>WordPress HTTP API</b></a> and in particular, the <a href="%s"><b>wp_remote_get()</b></a> and <a href="http://codex.wordpress.org/Function_API/wp_remote_post"><b>wp_remote_post()</b></a> functions for retrieving and posting the form.  Appapro iAthletics also makes use of the <a href="%s"><b>wp_kses()</b></a> function for processing the XML retrieved from Appapro and extracting the relevant information.</p><p>If you find this plugin useful, please consider <a href="%s" target="_blank">making small donation towards this plugin</a> to help keep it up to date.</p>', 'http://codex.wordpress.org/HTTP_API', 'http://codex.wordpress.org/Function_API/wp_remote_get', 'http://codex.wordpress.org/Function_Reference/wp_kses', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DK4MS3AA983CC', AIA_I18N_DOMAIN);?>
 </div>
         </div>
     </div>
@@ -209,11 +209,11 @@ function aia_settings_input()
 ?>
     <table class="form-table">
         <tr valign="top">
-            <th scope="row"><label><?php _e('<b><i>iAthletics</i></b> API Key', WPGFORM_I18N_DOMAIN);?></label></th>
+            <th scope="row"><label><?php _e('<b><i>iAthletics</i></b> API Key', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_api_key">
             <input name="aia_options[api_key]" type="text" id="aia_api_key" value="<?php echo $aia_options['api_key'] ; ?>" /><br />
-           <small><?php _e('(mandatory)', WPGFORM_I18N_DOMAIN);?></small></label>
+           <small><?php _e('(mandatory)', AIA_I18N_DOMAIN);?></small></label>
             </fieldset></td>
         </tr>
         <tr valign="top">
@@ -221,11 +221,11 @@ function aia_settings_input()
             <td><fieldset>
             <label for="aia_sc_posts">
             <input name="aia_options[sc_posts]" type="checkbox" id="aia_sc_posts" value="1" <?php checked('1', $aia_options['sc_posts']) ; ?> />
-            <?php _e('Enable shortcodes for posts and pages', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Enable shortcodes for posts and pages', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_sc_widgets">
             <input name="aia_options[sc_widgets]" type="checkbox" id="aia_sc_widgets" value="1" <?php checked('1', $aia_options['sc_widgets']) ; ?> />
-            <?php _e('Enable shortcodes in text widget', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Enable shortcodes in text widget', AIA_I18N_DOMAIN);?></label>
             </fieldset></td>
         </tr>
         <tr valign="top">
@@ -233,29 +233,29 @@ function aia_settings_input()
             <td><fieldset>
             <label for="aia_default_css">
             <input name="aia_options[default_css]" type="checkbox" id="aia_default_css" value="1" <?php checked('1', $aia_options['default_css']) ; ?> />
-            <?php _e('Enable default Appapro iAthletics CSS', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Enable default Appapro iAthletics CSS', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_custom_css">
             <input name="aia_options[custom_css]" type="checkbox" id="aia_custom_css" value="1" <?php checked('1', $aia_options['custom_css']) ; ?> />
-            <?php _e('Enable custom Appapro iAthletics CSS', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Enable custom Appapro iAthletics CSS', AIA_I18N_DOMAIN);?></label>
             </fieldset></td>
         </tr>
         <tr valign="top">
-        <th scope="row"><label><?php printf(__('Custom %s CSS', WPGFORM_I18N_DOMAIN), 'iAthletics');?></label><br/><small><i><?php _e('Optional CSS styles to control the appearance of the iAthletics content.', WPGFORM_I18N_DOMAIN);?></i></small></th>
+        <th scope="row"><label><?php printf(__('Custom %s CSS', AIA_I18N_DOMAIN), 'iAthletics');?></label><br/><small><i><?php _e('Optional CSS styles to control the appearance of the iAthletics content.', AIA_I18N_DOMAIN);?></i></small></th>
             <td>
             <textarea class="regular-text code" name="aia_options[custom_css_styles]" rows="15" cols="80"  id="aia_custom_css_styles"><?php echo $aia_options['custom_css_styles']; ?></textarea>
             </td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label><?php _e('Date Format', WPGFORM_I18N_DOMAIN);?></label></th>
+            <th scope="row"><label><?php _e('Date Format', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_date_format">
             <input name="aia_options[date_format]" type="text" id="aia_date_format" value="<?php echo $aia_options['date_format'] ; ?>" /><br />
-           <small><?php _e('Dates are formated using <a href="www.php.net/manual/en/function.date.php">PHP\'s date()</a> syntax.', WPGFORM_I18N_DOMAIN);?></small></label>
+           <small><?php _e('Dates are formated using <a href="www.php.net/manual/en/function.date.php">PHP\'s date()</a> syntax.', AIA_I18N_DOMAIN);?></small></label>
             </fieldset></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label><?php _e('Donation Request', WPGFORM_I18N_DOMAIN);?></label></th>
+            <th scope="row"><label><?php _e('Donation Request', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_donation_message">
             <table style="padding: 0px;" border="0" cellpadding="0" cellspacing="0">
@@ -264,7 +264,7 @@ function aia_settings_input()
             <input name="aia_options[donation_message]" type="checkbox" id="aia_donation_message" value="1" <?php checked('1', $aia_options['donation_message']) ; ?> />
             </td>
             <td style="padding: 5px;">
-            <?php _e('Hide the request for donation at the top of this page.<br/><small>The donation request will remain on the <b>About</b> tab.</small>', WPGFORM_I18N_DOMAIN);?>
+            <?php _e('Hide the request for donation at the top of this page.<br/><small>The donation request will remain on the <b>About</b> tab.</small>', AIA_I18N_DOMAIN);?>
             </td>
             </tr>
             </table>
@@ -297,7 +297,7 @@ function aia_settings_advanced_options()
 ?>
     <table class="form-table">
         <tr valign="top">
-            <th scope="row"><label><?php _e('HTTP API Timeout', WPGFORM_I18N_DOMAIN);?></label></th>
+            <th scope="row"><label><?php _e('HTTP API Timeout', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_http_api_timeout">
             <select style="width: 150px;" name="aia_options[http_api_timeout]" id="aia_http_api_timeout">
@@ -310,11 +310,11 @@ function aia_settings_advanced_options()
             <option value="60" <?php selected($aia_options['http_api_timeout'], 60); ?>>60 Seconds</option>
             </select>
             <br />
-            <small><?php _e('Change the default HTTP API Timeout setting (default is 5 seconds).', WPGFORM_I18N_DOMAIN);?></small></label>
+            <small><?php _e('Change the default HTTP API Timeout setting (default is 5 seconds).', AIA_I18N_DOMAIN);?></small></label>
             </fieldset></td>
         </tr>
         <tr valign="top">
-        <th scope="row"><label><?php _e('Enable Debug', WPGFORM_I18N_DOMAIN);?></label></th>
+        <th scope="row"><label><?php _e('Enable Debug', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_enable_debug">
             <table style="padding: 0px;" border="0" cellpadding="0" cellspacing="0">
@@ -323,7 +323,7 @@ function aia_settings_advanced_options()
             <input name="aia_options[enable_debug]" type="checkbox" id="aia_enable_debug" value="1" <?php checked('1', $aia_options['enable_debug']) ; ?> />
             </td>
             <td style="padding: 5px;">
-            <?php printf(__('Enabling debug will collect data during the data rendering and processing process.<p>The data is added to the page footer but hidden with a link appearing above the form which can toggle the display of the debug data.  This data is useful when trying to understand why the plugin isn\'t operating as expected.</p><p>When debugging is enabled, specific transports employed by the <a href="%s">WordPress HTTP API</a> can optionally be disabled.  While rarely required, disabling transports can be useful when the plugin is not communcating correctly with the Appapro iAthletics API.  <i>Extra care should be taken when disabling transports as other aspects of WordPress may not work correctly.</i>  The <a href="%s">WordPress Core Control</a> plugin is recommended for advanced debugging of <a href="%s">WordPress HTTP API issues.</a></p>', WPGFORM_I18N_DOMAIN), 'http://codex.wordpress.org/HTTP_API', 'http://wordpress.org/extend/plugins/core-control/', 'http://codex.wordpress.org/HTTP_API');?>
+            <?php printf(__('Enabling debug will collect data during the data rendering and processing process.<p>The data is added to the page footer but hidden with a link appearing above the form which can toggle the display of the debug data.  This data is useful when trying to understand why the plugin isn\'t operating as expected.</p><p>When debugging is enabled, specific transports employed by the <a href="%s">WordPress HTTP API</a> can optionally be disabled.  While rarely required, disabling transports can be useful when the plugin is not communcating correctly with the Appapro iAthletics API.  <i>Extra care should be taken when disabling transports as other aspects of WordPress may not work correctly.</i>  The <a href="%s">WordPress Core Control</a> plugin is recommended for advanced debugging of <a href="%s">WordPress HTTP API issues.</a></p>', AIA_I18N_DOMAIN), 'http://codex.wordpress.org/HTTP_API', 'http://wordpress.org/extend/plugins/core-control/', 'http://codex.wordpress.org/HTTP_API');?>
             </td>
             </tr>
             </table>
@@ -331,39 +331,39 @@ function aia_settings_advanced_options()
             </fieldset></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label><?php _e('WordPress HTTP API<br/>Transport Control', WPGFORM_I18N_DOMAIN);?></label></th>
+            <th scope="row"><label><?php _e('WordPress HTTP API<br/>Transport Control', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_fsockopen_transport">
             <input name="aia_options[fsockopen_transport]" type="checkbox" id="aia_fsockopen_transport" value="1" <?php checked('1', $aia_options['fsockopen_transport']) ; ?> />
-            <?php _e('Disable <i><b>FSockOpen</b></i> Transport', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Disable <i><b>FSockOpen</b></i> Transport', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_streams_transport">
             <input name="aia_options[streams_transport]" type="checkbox" id="aia_streams_transport" value="1" <?php checked('1', $aia_options['streams_transport']) ; ?> />
-            <?php _e('Disable <i><b>Streams</b></i> Transport', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Disable <i><b>Streams</b></i> Transport', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_curl_transport">
             <input name="aia_options[curl_transport]" type="checkbox" id="aia_curl_transport" value="1" <?php checked('1', $aia_options['curl_transport']) ; ?> />
-            <?php _e('Disable <i><b>cURL</b></i> Transport', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Disable <i><b>cURL</b></i> Transport', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_ssl_verify">
             <input name="aia_options[ssl_verify]" type="checkbox" id="aia_ssl_verify" value="1" <?php checked('1', $aia_options['ssl_verify']) ; ?> />
-            <?php _e('Disable <i><b>SSL Verify</b></i>', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Disable <i><b>SSL Verify</b></i>', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_local_ssl_verify">
             <input name="aia_options[local_ssl_verify]" type="checkbox" id="aia_local_ssl_verify" value="1" <?php checked('1', $aia_options['local_ssl_verify']) ; ?> />
-            <?php _e('Disable <i><b>Local SSL Verify</b></i>', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Disable <i><b>Local SSL Verify</b></i>', AIA_I18N_DOMAIN);?></label>
             </fieldset></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label><?php _e('HTTP Request Timeout', WPGFORM_I18N_DOMAIN);?></label></th>
+            <th scope="row"><label><?php _e('HTTP Request Timeout', AIA_I18N_DOMAIN);?></label></th>
             <td><fieldset>
             <label for="aia_http_request_timeout">
             <input name="aia_options[http_request_timeout]" type="checkbox" id="aia_http_request_timeout" value="1" <?php checked('1', $aia_options['http_request_timeout']) ; ?> />
-            <?php _e('Change <i><b>HTTP Request Timeout</b></i>', WPGFORM_I18N_DOMAIN);?></label>
+            <?php _e('Change <i><b>HTTP Request Timeout</b></i>', AIA_I18N_DOMAIN);?></label>
             <br />
             <label for="aia_http_request_timeout_value">
             <input name="aia_options[http_request_timeout_value]" type="text" id="aia_http_request_timeout_value" value="<?php echo $aia_options['http_request_timeout_value'] ; ?>" /><br />
-           <small><?php _e('(in seconds)', WPGFORM_I18N_DOMAIN);?></small></label>
+           <small><?php _e('(in seconds)', AIA_I18N_DOMAIN);?></small></label>
             </fieldset></td>
         </tr>
     </table>

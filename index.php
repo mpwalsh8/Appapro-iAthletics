@@ -4,8 +4,8 @@
  * Plugin Name: Appapro iAthletics
  * Plugin URI: http://michaelwalsh.org/wordpress/wordpress-plugins/appapro-iathletics/
  * Description: WordPress integration of Appapro iAthletics (http://www.appapro.com).  This plugin uses the Appapro API to display seasons, teams, rosters, schedules, and results, for High School athletics teams.
- * Version: 0.2-beta
- * Build: 0.2-beta
+ * Version: 0.3-beta
+ * Build: 0.3-beta
  * Last Modified:  2013-05-23
  * Author: Mike Walsh
  * Author URI: http://www.michaelwalsh.org
@@ -25,7 +25,7 @@
  *
  */
 
-define('AIA_VERSION', '0.2-beta') ;
+define('AIA_VERSION', '0.3-beta') ;
 
 require_once('aia-core.php') ;
 //require_once('aia-post-type.php') ;

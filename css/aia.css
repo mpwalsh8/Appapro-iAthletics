@@ -27,3 +27,18 @@
 .aia-accordion h4, .aia-accordion h5, .aia-accordion h6 {
     margin: 0 !important;
 }
+
+.aia-accordion .ui-accordion-content {
+    padding: 0.5em 0.75em;
+}
+
+.aia-roster,
+.aia-schedule {
+    font-family: "Helvetica Neue",Arial,Helvetica,"Nimbus Sans L",sans-serif;
+}
+    
+.aia-accordion tr th,
+.aia-accordion tr td {
+    font-size: 0.70em;
+    /*padding: 3px 12px;*/
+}
